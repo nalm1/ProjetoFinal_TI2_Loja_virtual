@@ -83,10 +83,7 @@
             Carrega dados dos produtos
         -->
         <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "loja_virtual";
+            include 'database.php';
             $prod_por_linha = 5;
             // Create connection
             $conn = new mysqli($servername, $username, $password, $dbname);
@@ -101,12 +98,11 @@
                 // output data of each row
                 $counter = 0;
                 while($row = $result->fetch_assoc()) {
-                    $image;
-                    if(!is_null ($row["imagem"]))
+                    if($row["imagem"]=="")
                     {
-                        $image = "images/".$row["imagem"];
-                    } else {
                         $image = "images/notFound.png";
+                    } else {
+                        $image = "images/".$row["imagem"];
                     }
                     echo '  <script>
                                 var prod = {
