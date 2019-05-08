@@ -1,0 +1,1 @@
+CREATE TABLE `Loja_Virtual`.`produto` ( `id` INT NOT NULL AUTO_INCREMENT , `nome` VARCHAR NOT NULL , `preco` FLOAT NOT NULL , `descricao` TEXT NOT NULL , `imagem` VARCHAR NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;

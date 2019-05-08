@@ -1,0 +1,16 @@
+html{
+    margin: 0;
+    background-color: #fffdd0;
+}
+body{
+    background-color: rgba(255, 0, 0, 0) !important;
+}
+table{
+    width: 75%;
+    max-width: 1000px;
+    color: black;
+    margin: auto;
+}
+.credits{
+    text-align: center;
+}

@@ -1,0 +1,104 @@
+#myCarousel{
+    width: 100%;
+    margin: auto;
+}
+
+#myCarousel img{
+    max-height: 400px;
+    object-fit:contain;
+}
+
+.titulo_principal{
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+.imagem_descontos {
+    display: block;
+    position: relative;
+    margin: auto;
+    margin-top: 10px;
+    width: 80%;
+    max-width: 200px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow: hidden;
+}
+
+.imagem_descontos img{
+    width: 95%;
+    max-height: 95%;
+    display: block;
+    margin: auto;
+    transition-duration: 1s;
+}
+
+.imagem_descontos:hover img{
+    transform: scale(1.5);
+}
+
+.label_imagem_descontos {
+    position: absolute;
+    bottom: 0;
+    background-color: black;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+.btn_comprar{
+    color: white;
+    background-color: green;
+    border: none;
+    padding: 8px;
+    transition: 2s;
+}
+
+#modal{
+    background-color: rgba(100,100,100,.7);
+    margin: auto;
+    padding: 10px;
+}
+
+#modal img{
+    margin:10px;
+}
+
+#modal button{
+    margin-right: 10px;
+}
+
+#modal table{
+    width: auto;
+    background-color: rgba(250,259,250,.7);
+}
+
+#modal_captions{
+    padding: 10px 10px 20px 10px;
+}
+
+#closer{
+    font-size: 70px;
+    content: "X";
+}
+
+.userBar{
+    text-align: right;
+    font-size: 20px;
+    font-family: cursive;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    padding-right: 25%;
+}
+
+.login, .registar{
+    color: white;
+    text-decoration: none
+}
+
+.login:hover, .registar:hover{
+    color: red;
+    text-decoration: none;
+}
