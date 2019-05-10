@@ -8,12 +8,15 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <script src="JS/index.js"></script>
+        <script src="JS/verificaLogin.js"></script>
+        <script src="JS/carregarProdutos.js"></script>
+        <script src="JS/manipulaPopups.js"></script>
         <title>Loja Virtual</title>
         <script>
             var produtos=[];
         </script>
     </head>
-    <body onload="onLoad()">
+    <body onload="loadScreen()">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
             <ol class="carousel-indicators">
@@ -46,8 +49,8 @@
             </a>
         </div>
         <div class="userBar">
-            <a id="login" class="login" >Login</a> ||
-            <a id="login" class="registar">Registar</a>
+            <a id="login" class="login" onclick="login()">Login</a> ||
+            <a id="login" class="registar"onclick="registar()">Registar</a>
         </div>
 
         <table>
@@ -73,58 +76,11 @@
                 </tr>
             </table>
         </div>
-        <div class="loginPopModal" class="modal">
-
-        </div>
-        <div class="registerPopModal" class="modal">
-
-        </div>
+        <div class="loginPopModal" class="modal"></div>
+        <div class="registerPopModal" class="modal"></div>
         <!--
             Carrega dados dos produtos
         -->
-        <?php
-            include 'database.php';
-            $prod_por_linha = 5;
-            // Create connection
-            $conn = new mysqli($server, $username, $password, $dbname);
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-            $query = "select * from produto";
-            $result = $conn->query($query);
-
-            if ($result->num_rows > 0) {
-                // output data of each row
-                $counter = 0;
-                while($row = $result->fetch_assoc()) {
-                    if($row["imagem"]=="")
-                    {
-                        $image = "images/notFound.png";
-                    } else {
-                        $image = "images/".$row["imagem"];
-                    }
-                    echo '  <script>
-                                var prod = {
-                                    id:"'.$row["id"].'",
-                                    nome: "'.$row["nome"].'",
-                                    preco: '.$row["preco"].',
-                                    descricao: "'.$row["descricao"].'",
-                                    imagem: "'.$image.'"
-                                };
-                                produtos.push(prod);
-                            </script>';
-                }
-            } else {
-                echo "0 results";
-            }
-            echo'<script>
-                console.log(produtos);
-                carregar_produtos("produtos", produtos);
-            </script>';
-            $conn->close();
-        ?>
-
 
         <div class="credits">Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
         <div class="credits">Bootstrap v3.4.0 <a href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">CSS</a> and <a href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js">JS</a> ||| <a href="https://github.com/twbs/bootstrap/blob/v4.0.0/LICENSE">License</a></div>
