@@ -58,11 +58,9 @@
             <tr>
                 <td colspan="5"class="titulo_principal"><h1>Loja Virtual</h1></td>
             </tr>
-            <!-- Descontos -->
-            <tr class="Descontos"></tr>
-            <!-- produtos -->
-            <tr class="produtos"></tr>
         </table>
+        <table class="Descontos"></table>
+        <table class="produtos"></table>
         <!-- Popup -->
         <div id="modal" class="modal">
             <div id="closer"class="close">&times;</div>
