@@ -19,16 +19,17 @@
     margin: auto;
     margin-top: 10px;
     width: 80%;
+    height: 100%;
     max-width: 200px;
     background-color: white;
-    border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     overflow: hidden;
 }
 
 .imagem_descontos img{
-    width: 95%;
-    max-height: 95%;
+    max-width: 95%;
+    height: 200px;
+    object-fit: contain;
     display: block;
     margin: auto;
     transition-duration: 1s;
@@ -59,10 +60,14 @@
     background-color: rgba(100,100,100,.7);
     margin: auto;
     padding: 10px;
+
 }
 
 #modal img{
-    margin:10px;
+    width: 500px;
+    height: 500px;
+    object-fit: contain;
+    margin: 10px;
 }
 
 #modal button{
@@ -71,6 +76,10 @@
 
 #modal table{
     width: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: rgba(250,259,250,.7);
 }
 

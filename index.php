@@ -82,8 +82,10 @@
             Carrega dados dos produtos
         -->
 
+
         <div class="credits">Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
         <div class="credits">Bootstrap v3.4.0 <a href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">CSS</a> and <a href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js">JS</a> ||| <a href="https://github.com/twbs/bootstrap/blob/v4.0.0/LICENSE">License</a></div>
         <div class="credits">Ajax <a href="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">v.3.3.1</a> ||| <a href="https://github.com/ForbesLindesay/ajax/blob/master/LICENSE">License</a></div>
+        <div class="credits">Gradients made using <a href="https://colorzilla.com" title="Smashicons">Color Zilla</a>
     </body>
 </html>
