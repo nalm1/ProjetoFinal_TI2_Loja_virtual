@@ -11,7 +11,7 @@ function carregar_produtos(destino){
             div_destino.innerHTML = "<tr>"
             $.each(data.result, function (row, produto){
                 produtos.push(produto);
-                html_row += "<td><div class=\"imagem_descontos\"><img src=\""+ produto.imagem +"\" alt=\""+produto.id+"\"><div class=\"label_imagem_descontos\">"+produto.nome +" "+produto.preco+"€</div></div></td>";
+                html_row += "<td><div class=\"imagem_descontos\"><img src=\""+ produto.imagem +"\" alt=\""+produto.id+"\"><div class=\"label_imagem_descontos\">"+produto.nome +"</div><div class=\"preco_imagem_descontos\">"+produto.nome+" "+produto.preco+"€</div></div></td>";
                 i+=1;
                 if(i > 3) {
                     html_row += "</tr>";
