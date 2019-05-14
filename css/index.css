@@ -1,14 +1,14 @@
-#myCarousel{
+#myCarousel {
     width: 100%;
     margin: auto;
 }
 
-#myCarousel img{
+#myCarousel img {
     max-height: 400px;
-    object-fit:contain;
+    object-fit: contain;
 }
 
-.titulo_principal{
+.titulo_principal {
     width: 100%;
     border-bottom: 1px solid black;
 }
@@ -27,7 +27,7 @@
     transition: 1s;
 }
 
-.imagem_descontos img{
+.imagem_descontos img {
     max-width: 95%;
     height: 200px;
     object-fit: contain;
@@ -36,10 +36,11 @@
     transition-duration: 1s;
 }
 
-.imagem_descontos:hover{
+.imagem_descontos:hover {
     transform: scale(1.5);
     z-index: 1;
 }
+
 .label_imagem_descontos {
     position: absolute;
     bottom: 0;
@@ -48,19 +49,26 @@
     width: 100%;
     text-align: center;
 }
+
 .preco_imagem_descontos {
     position: none;
+    font-size: 1px;
     bottom: 0;
-    background-color: black;
+    right: 0;
+    background-color: green;
     color: white;
-    width: 100%;
+    width: 25%;
     text-align: center;
+    overflow-x: visible;
+    transition: 1s;
 }
-.imagem_descontos:hover .preco_imagem_descontos{
+
+.imagem_descontos:hover .preco_imagem_descontos {
+    font-size: 15px;
     position: relative;
 }
 
-.btn_comprar{
+.btn {
     color: white;
     background-color: green;
     border: none;
@@ -68,43 +76,7 @@
     transition: 2s;
 }
 
-#modal{
-    background-color: rgba(100,100,100,.7);
-    margin: auto;
-    padding: 10px;
-
-}
-
-#modal img{
-    width: 500px;
-    height: 500px;
-    object-fit: contain;
-    margin: 10px;
-}
-
-#modal button{
-    margin-right: 10px;
-}
-
-#modal table{
-    width: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(250,259,250,.7);
-}
-
-#modal_captions{
-    padding: 10px 10px 20px 10px;
-}
-
-#closer{
-    font-size: 70px;
-    content: "X";
-}
-
-.userBar{
+.userBar {
     text-align: right;
     font-size: 20px;
     font-family: cursive;
@@ -114,12 +86,78 @@
     padding-right: 25%;
 }
 
-.login, .registar{
+.login, .registar {
     color: white;
     text-decoration: none
 }
 
-.login:hover, .registar:hover{
+.login:hover, .registar:hover {
     color: red;
     text-decoration: none;
+}
+
+.modal.fade {
+    opacity: 1;
+}
+
+.modal.fade .modal-dialog {
+    -webkit-transform: translate(0);
+    -moz-transform: translate(0);
+    transform: translate(0);
+}
+
+#modal_img {
+    width: 200px;
+    height: 200px;
+    object-fit: scale-down;
+}
+
+#modal-dialog {
+    background-color: rgba(100, 100, 100, .7);
+    margin: auto;
+    padding: 10px;
+    transition: 1s;
+}
+
+#modal-dialog tr td img {
+    width: 500px;
+    height: 500px;
+    object-fit: contain;
+    margin: auto;
+}
+
+#modal-dialog button {
+    margin-right: 10px;
+}
+
+#modal-dialog table {
+    width: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(250, 259, 250, .7);
+}
+
+#modal_descricao {
+    padding: 10px 10px 20px 10px;
+    min-width: 250px;
+}
+
+#modal_descricao h1, h2 {
+    border-bottom: 1px solid gray;
+    padding-left: 7px;
+}
+
+#modal_descricao h1 {
+    font-size: 20px;
+}
+
+#modal_descricao h2 {
+    font-size: 17px;
+}
+
+#closer {
+    font-size: 70px;
+    content: "X";
 }
