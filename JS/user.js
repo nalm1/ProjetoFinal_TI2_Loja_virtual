@@ -22,18 +22,24 @@ function login(username, password) {
 }
 
 function registar() {
+    var username = $('[name="log_rgst_txt"]').val();
+    var password = $('[name="psw_rgst_txt"]').val();
+    var mail = $('[name="mail_rgst_txt"]').val();
+
+
     $.ajax({
         method: "POST",
         url: 'DB/registar.php',
         data: {
             username: username,
-            password: password
+            password: password,
+            mail: mail
         },
         success: function(obj) {
             var data = $.parseJSON(obj);
             console.log(data.result);
-            $.each(data.result, function(row, produto) {
-
+            $.each(data.result, function(row, result) {
+                console.log(result);
             })
         }
     });

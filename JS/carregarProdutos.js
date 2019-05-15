@@ -19,8 +19,8 @@ function carregar_produtos(destino) {
                     i = 0;
                 }
             })
-            if (i < 3)
-                div_destino.innerHTML += html_row;
+            if (i <= 3)
+                div_destino.innerHTML += html_row + "</tr>";
             setPopupEffect();
         }
     });
