@@ -157,6 +157,11 @@
     font-size: 17px;
 }
 
+.login_modal_content {
+    margin: auto;
+    margin-top: 25px;
+}
+
 #closer {
     font-size: 70px;
     content: "X";

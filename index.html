@@ -51,8 +51,8 @@
         </a>
     </div>
     <div class="userBar">
-        <a id="login" class="login" onclick="login()" data-toggle="modal" data-target="#modal_login">Login</a> ||
-        <a id="login" class="registar" onclick="registar()" data-toggle="modal" data-target="#modal">Registar</a>
+        <a id="login" class="login" data-toggle="modal" data-target="#modal_login">Login</a> ||
+        <a id="registar" class="registar" data-toggle="modal" data-target="#modal_registar">Registar</a>
     </div>
     <table>
         <!-- Header-->
@@ -97,7 +97,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">Login</h4>
                 </div>
-                <div class="form-group input-group modal-body ">
+                <div class="form-group input-group modal-body login_modal_content">
                     <form action="" id="loginForm">
                         <div class="form-group input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -112,9 +112,6 @@
                                 <input type="checkbox"> I agree to the <a href="#">Terms and Conditions</a>
                             </label>
                         </div>
-                        <div class="form-group">
-                            <button type="button" class="btn btn-def btn-block">Login</button>
-                        </div>
                         <div class="form-group text-center">
                             <a href="#">Forgot Password</a>&nbsp;|&nbsp;<a href="#">Support</a>
                         </div>
@@ -128,11 +125,44 @@
             </div>
         </div>
     </div>
-    <div class="loginPopModal" class="modal">
+    <!-- Registo Modal-->
+    <div class="modal fade" id="modal_registar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Login</h4>
+                </div>
+                <div class="form-group input-group modal-body login_modal_content">
+                    <form action="" id="loginForm">
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input class="form-control" type="text" name='log_rgst_txt' placeholder="username" />
+                        </div>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input class="form-control" type="password" name='psw_rgst_txt' placeholder="password" />
+                        </div>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input class="form-control" type="email" name='mail_rgst_txt' placeholder="mail@mail.pt" />
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> I agree to the <a href="#">Terms and Conditions</a>
+                            </label>
+                        </div>
+                    </form>
+                </div>
 
-        <button type="button" name="lg_btn"></button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" onclick="login()">Registar</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="registerPopModal" class="modal"></div>
+
     <div class="credits">Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a
             href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
     <div class="credits">Bootstrap v3.4.0 <a href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">CSS</a> and <a href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js">JS</a> ||| <a

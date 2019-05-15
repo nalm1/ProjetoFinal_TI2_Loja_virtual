@@ -1,7 +1,7 @@
 <?php
     include 'connectToDatabase.php';
-    $username = $POST['username'];
-    $password = $POST['password'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
     $query = "SELECT id, password FROM user WHERE username LIKE $username LIMIT 1";
     $result = $conn->query($query);
     $json = array();
@@ -9,15 +9,15 @@
         while($row = $result->fetch_assoc()) {
             if(password_verify($password, $row['password']))
             {
-                $json['result'] = {id : $row["id"], username : $username};
+                $json['result'] = ['id'=> $row["id"], 'username'=> $username];
             }
             else
             {
-                $json['result'] = {id : -1, username : ""};
+                $json['result'] = ['id'=> -1, 'username'=> ""];
             }
         }
     } else {
-        $json['result'] = {id : -1, username : ""};
+        $json['result'] = ['id'=> -1, 'username'=> ""];
     }
     echo json_encode($json);
     $conn->close();
