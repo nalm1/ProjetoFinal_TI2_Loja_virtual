@@ -12,7 +12,6 @@
     }
     if ($result->num_rows == 0) {
             $password = password_hash($password, PASSWORD_ARGON2I);
-            var_dump($password);
             $query = "INSERT INTO user (username, password, email) VALUES ('$username', '$password', '$email')";
             if($conn->query($query)){
                 $json['result'] = ['msg'=> "Utilizador criado com sucesso!"];

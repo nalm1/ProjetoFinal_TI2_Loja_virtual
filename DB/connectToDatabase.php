@@ -1,6 +1,6 @@
 <?php
 
-    $is_local = 1;
+    $is_local = false;
     $username = "P1rI3fokZa";
     $password = "sPtHShqmHp";
     $dbname = "P1rI3fokZa";
@@ -10,10 +10,17 @@
     $username_local = "root";
     $password_local = "";
     $dbname_local = "loja_virtual";
-    $server_local = "localhost:3306";
-    $conn = new mysqli($server_local, $username_local, $password_local, $dbname_local);
-    //$conn = new mysqli($server, $username, $password, $dbname);
-    // Check connection
+    $server_local = "localhost";
+    $conn;
+    if($is_local)
+    {
+        $conn = new mysqli($server_local, $username_local, $password_local, $dbname_local);
+
+    }
+    else {
+        $conn = new mysqli($server, $username, $password, $dbname);
+    }
+
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }

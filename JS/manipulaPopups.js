@@ -25,3 +25,13 @@ function setPopupEffect() {
         }
     }
 }
+
+function showMsg(msg) {
+    var x = $("#snackbar");
+    x.html(msg);
+    x.addClass("show");
+
+    setTimeout(function() {
+        x.removeClass("show");
+    }, 3000);
+}

@@ -1,8 +1,6 @@
 function login(username, password) {
     var username = $('[name="log_txt"]').val();
     var password = $('[name="psw_txt"]').val();
-    console.log(username);
-    console.log(password);
 
     $.ajax({
         method: "POST",
@@ -13,10 +11,16 @@ function login(username, password) {
         },
         success: function(obj) {
             var data = $.parseJSON(obj);
-            console.log(data.result);
-            $.each(data.result, function(row, result) {
-                console.log(result)
-            })
+            if (data.result.id != -1) {
+                var username = data.result.username;
+                var id = data.result.id;
+                showMsg("Bem-vindo :: " + username);
+                $("#modal_login .close").click();
+                $("#userBar").html("<a class=\"login\" onclick=\"logout()\">" + username + "</a>");
+            } else {
+                showMsg("Nome de utilizador e password não condizem");
+            }
+
         }
     });
 }
@@ -37,9 +41,9 @@ function registar() {
         },
         success: function(obj) {
             var data = $.parseJSON(obj);
-            console.log(data.result);
             $.each(data.result, function(row, result) {
                 console.log(result);
+                showMsg(result);
             })
         }
     });
