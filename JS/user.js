@@ -16,7 +16,7 @@ function login(username, password) {
                 var id = data.result.id;
                 showMsg("Bem-vindo :: " + username);
                 $("#modal_login .close").click();
-                $("#userBar").html("<a class=\"login\" onclick=\"logout()\">" + username + "</a>");
+                $("#userBar").html("<img class=\"barIcon\"src=\"./images/basket.png\">  <a class=\"login\" onclick=\"logout()\">" + username + " &darr;</a>");
             } else {
                 showMsg("Nome de utilizador e password não condizem");
             }
@@ -44,7 +44,14 @@ function registar() {
             $.each(data.result, function(row, result) {
                 console.log(result);
                 showMsg(result);
+                if (result == "Utilizador criado com sucesso!") {
+                    $("#modal_registar .close").click();
+                }
             })
         }
     });
+}
+
+function logout() {
+    location.reload();
 }

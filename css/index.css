@@ -86,6 +86,11 @@
     padding-right: 25%;
 }
 
+.barIcon {
+    height: 20px;
+    object-fit: fill;
+}
+
 .login, .registar {
     color: white;
     text-decoration: none
