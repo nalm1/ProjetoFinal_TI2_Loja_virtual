@@ -1,0 +1,74 @@
+/*
+ * Popups
+ * Base bootstrap
+ */
+.modal.fade {
+    opacity: 1;
+}
+
+.modal.fade .modal-dialog {
+    -webkit-transform: translate(0);
+    -moz-transform: translate(0);
+    transform: translate(0);
+}
+
+#modal_img {
+    width: 200px;
+    height: 200px;
+    object-fit: scale-down;
+}
+
+#modal-dialog {
+    background-color: rgba(100, 100, 100, .7);
+    margin: auto;
+    padding: 10px;
+    transition: 1s;
+}
+
+#modal-dialog tr td img {
+    width: 500px;
+    height: 500px;
+    object-fit: contain;
+    margin: auto;
+}
+
+#modal-dialog button {
+    margin-right: 10px;
+}
+
+#modal-dialog table {
+    width: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(250, 259, 250, .7);
+}
+
+#modal_descricao {
+    padding: 10px 10px 20px 10px;
+    min-width: 250px;
+}
+
+#modal_descricao h1, h2 {
+    border-bottom: 1px solid gray;
+    padding-left: 7px;
+}
+
+#modal_descricao h1 {
+    font-size: 20px;
+}
+
+#modal_descricao h2 {
+    font-size: 17px;
+}
+
+.login_modal_content {
+    margin: auto;
+    margin-top: 25px;
+}
+
+#closer {
+    font-size: 70px;
+    content: "X";
+}
