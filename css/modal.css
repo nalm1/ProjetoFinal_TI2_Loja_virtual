@@ -12,6 +12,11 @@
     transform: translate(0);
 }
 
+.modal-header, .modal-footer {
+    background-color: rgba(200, 238, 251, .8);
+    border: none;
+}
+
 #modal_img {
     width: 200px;
     height: 200px;

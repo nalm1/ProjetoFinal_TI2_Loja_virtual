@@ -20,7 +20,6 @@ function login(username, password) {
             } else {
                 showMsg("Nome de utilizador e password não condizem");
             }
-
         }
     });
 }
