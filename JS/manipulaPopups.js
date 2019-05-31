@@ -10,6 +10,7 @@ function setPopupEffect() {
     for (var i = 0; i < images.length; i++) {
         images[i].onclick = function() {
             modalImg.src = this.src;
+            modalImg.alt = this.alt;
             var alt = parseInt(this.alt, 10);
 
             function findProdById(element) {

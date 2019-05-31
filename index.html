@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
+
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/index.css">
@@ -14,9 +15,21 @@
     <script src="JS/user.js"></script>
     <script src="JS/carregarProdutos.js"></script>
     <script src="JS/manipulaPopups.js"></script>
+    <script src="JS/carrinho.js"></script>
     <title>Loja Virtual</title>
     <script>
         var produtos = [];
+        $.ajax({
+            url: 'DB/destroy.php',
+            success: function(obj) {
+                var data = $.parseJSON(obj);
+                $.each(data.result, function(row, result) {
+                    console.log(result);
+                    if (result == "Esqueceu-se de desligar a sessão a última vez que entrou!")
+                        showMsg(result);
+                })
+            }
+        });
     </script>
 </head>
 
@@ -53,7 +66,7 @@
         </a>
     </div>
     <div class="userBar" id="userBar">
-        <a id="login" class="login" data-toggle="modal" data-target="#modal_login">Login</a> ||
+        <a id="login" class="login" data-toggle="modal" data-target="#modal_login">Login</a>&nbsp;&nbsp;
         <a id="registar" class="registar" data-toggle="modal" data-target="#modal_registar">Registar</a>
     </div>
     <table>
@@ -71,7 +84,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" id="closer" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="popupProdutoTitulo"></h4>
                 </div>
                 <div class="modal-body">
@@ -86,7 +99,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary">Adicionar ao carrinho</button>
+                    <button type="button" class="btn btn-primary" onclick="addCarrinho()">Adicionar ao carrinho</button>
                 </div>
             </div>
         </div>

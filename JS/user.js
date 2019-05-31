@@ -12,16 +12,15 @@ function login(username, password) {
         success: function(obj) {
             var data = $.parseJSON(obj);
             if (data.result.id != -1) {
-                var username = data.result.username;
-                var id = data.result.id;
-                showMsg("Bem-vindo :: " + username);
+                showMsg("Bem-vindo :: " + data.result.username);
                 $("#modal_login .close").click();
-                $("#userBar").html("<img class=\"barIcon\"src=\"./images/basket.png\">  <a class=\"login\" onclick=\"logout()\">" + username + " &darr;</a>");
+                $("#userBar").html("<img class=\"barIcon\"src=\"./images/basket.png\">  <a class=\"login\" onclick=\"logout()\">" + data.result.username + " &darr;</a>");
             } else {
                 showMsg("Nome de utilizador e password não condizem");
             }
         }
     });
+
 }
 
 function registar() {
@@ -51,6 +50,40 @@ function registar() {
     });
 }
 
+function verificaLog(foo) {
+    $.ajax({
+        method: "POST",
+        url: 'DB/verificaLog.php',
+        success: function(obj) {
+            var data = $.parseJSON(obj);
+            $.each(data.result, function(row, result) {
+                console.log(result);
+                if (result == 'Utilizador verificado com sucesso') {
+                    foo(1);
+                } else {
+                    foo(0);
+                    showMsg(result);
+                }
+            })
+        }
+    });
+}
+
 function logout() {
-    location.reload();
+    $.ajax({
+        method: "POST",
+        url: 'DB/logout.php',
+        success: function(obj) {
+            var data = $.parseJSON(obj);
+            $.each(data.result, function(row, result) {
+                console.log(result);
+                showMsg(result);
+                if (result == 'sessao destruida') {
+                    location.reload();
+                } else {
+                    showMsg("Erro a terminar sessao, tente novamente!");
+                }
+            })
+        }
+    });
 }

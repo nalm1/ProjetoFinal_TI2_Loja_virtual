@@ -60,13 +60,9 @@
     padding-left: 7px;
 }
 
-#modal_descricao h1 {
-    font-size: 20px;
-}
+#modal_descricao h1 {}
 
-#modal_descricao h2 {
-    font-size: 17px;
-}
+#modal_descricao h2 {}
 
 .login_modal_content {
     margin: auto;

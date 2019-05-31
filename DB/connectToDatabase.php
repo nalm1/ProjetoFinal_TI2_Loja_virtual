@@ -1,6 +1,6 @@
 <?php
 
-    $is_local = false;
+    $is_local = true;
     $username = "P1rI3fokZa";
     $password = "sPtHShqmHp";
     $dbname = "P1rI3fokZa";
