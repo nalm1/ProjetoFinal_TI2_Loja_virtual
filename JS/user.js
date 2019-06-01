@@ -14,7 +14,7 @@ function login(username, password) {
             if (data.result.id != -1) {
                 showMsg("Bem-vindo :: " + data.result.username);
                 $("#modal_login .close").click();
-                $("#userBar").html("<img class=\"barIcon\"src=\"./images/basket.png\">  <a class=\"login\" onclick=\"logout()\">" + data.result.username + " &darr;</a>");
+                $("#userBar").html("<img class=\"barIcon\"src=\"./images/basket.png\">  <a class=\"login\" onclick=\"logout()\">logout</a> <a class=\"login\" onclick=\"carrinho()\">Carrinho</a>");
             } else {
                 showMsg("Nome de utilizador e password não condizem");
             }
@@ -83,6 +83,32 @@ function logout() {
                 } else {
                     showMsg("Erro a terminar sessao, tente novamente!");
                 }
+            })
+        }
+    });
+}
+
+function carrinho() {
+
+    $.ajax({
+        url: 'DB/mostrarCarrinho.php',
+        success: function(obj) {
+            var data = $.parseJSON(obj);
+            console.log(data.result);
+            var i = 0;
+            var html_row = "<tr>";
+            $.each(data.result, function(row, produto) {
+                produtos.push(produto);
+                /*
+                html_row += "<td><div data-toggle=\"modal\" data-target=\"#modal\" class=\"imagem_descontos\"><img src=\"" + produto.imagem + "\" alt=\"" + produto.id + "\"><div class=\"label_imagem_descontos\">" + produto.nome + "</div><div class=\"preco_imagem_descontos\">" + produto.preco + "€</div></div></td>";
+                i += 1;
+                if (i > 3) {
+                    html_row += "</tr>";
+                    div_destino.innerHTML += html_row;
+                    html_row = "<tr>";
+                    i = 0;
+                }
+                */
             })
         }
     });
