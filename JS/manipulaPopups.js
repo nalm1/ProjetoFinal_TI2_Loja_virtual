@@ -2,7 +2,7 @@ function setPopupEffect() {
     /*
         Popup ao clica na imagem
     */
-    var images = $("img");
+    var images = $(".Descontos img");
     var modal = document.getElementById('modal');
     var modalImg = document.getElementById("modal_img");
     var descricao = document.getElementById("modal_descricao");

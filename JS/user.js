@@ -87,3 +87,10 @@ function logout() {
         }
     });
 }
+
+
+function showPanel() {
+    verificaLog(function() {
+        console.log("Mostrar Painel!!");
+    });
+}

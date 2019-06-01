@@ -16,6 +16,7 @@
 /*********************
  Barra de Utilizador
 *********************/
+/*
 .titulo_principal {
     width: 100%;
     border-bottom: 1px solid black;
@@ -50,6 +51,41 @@
 .login:hover, .registar:hover {
     color: red;
     text-decoration: none;
+}
+*/
+.userBar {
+    padding: 10px;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 100%;
+    background-color: lightblue;
+}
+
+.userBar img {
+    width: 90%;
+    height: 90%;
+    border-radius: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 5px;
+}
+
+#login, #registar {
+    background-color: black;
+    border-radius: 2px;
+    color: white;
+    padding: 5px;
+    display: none;
+}
+
+.userBar:hover #login, #registar {
+    display: absolute;
+    top: 0;
+    left: 0;
 }
 
 /*********************
@@ -108,5 +144,3 @@
 .imagem_descontos:hover .preco_imagem_descontos {
     position: relative;
 }
-
-.invisible {}
