@@ -14,9 +14,9 @@ function login(username, password) {
             if (data.result.id != -1) {
                 showMsg("Bem-vindo :: " + data.result.username);
                 $("#modal_login .close").click();
-                $("#userBar").html("<img class=\"barIcon\"src=\"./images/basket.png\">  <a class=\"login\" onclick=\"logout()\">logout</a> <a class=\"login\" onclick=\"carrinho()\">Carrinho</a>");
+                $("#userBar").html("<b><img class=\"barIcon\"src=\"./images/basket.png\">  <a class=\"login\" onclick=\"logout()\">logout</a> <a class=\"login\" onclick=\"carrinho()\">Carrinho</a></b>");
             } else {
-                showMsg("Nome de utilizador e password não condizem");
+                showMsg(data.result.msg);
             }
         }
     });
