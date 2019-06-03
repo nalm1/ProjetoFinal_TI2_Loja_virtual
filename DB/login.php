@@ -14,7 +14,7 @@
         if($row) {
             if(password_verify( $password,$row['password']))
             {
-                $hash = random_bytes(10);
+                $hash = md5(uniqid(rand(), true));
                 $id = $row['id'];
 
                 $query = "UPDATE user SET hash = '$hash' WHERE id = $id";
