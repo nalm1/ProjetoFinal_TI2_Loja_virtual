@@ -26,33 +26,6 @@
 /*********************
  Barra de Utilizador
 *********************/
-/*
-.titulo_principal {
-    width: 100%;
-    border-bottom: 1px solid black;
-}
-
-.btn {
-    color: white;
-    background-color: green;
-    border: none;
-    padding: 8px;
-    transition: 2s;
-}
-
-.userBar {
-    text-align: right;
-    background-color: black;
-    color: white;
-    text-decoration: none;
-    padding-right: 25%;
-}
-
-.barIcon {
-    height: 20px;
-    object-fit: fill;
-}
-*/
 .userBar {
     padding: 10px;
     width: 100px;
@@ -65,6 +38,7 @@
     border-bottom-left-radius: 10px;
     background-color: lightblue;
     transition: 1s;
+    z-index: 98;
 }
 
 .userBar img {
@@ -165,4 +139,5 @@
 
 .imagem_descontos:hover .preco_imagem_descontos {
     position: relative;
+    font-size: 13px;
 }

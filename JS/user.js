@@ -1,4 +1,4 @@
-function login(username, password) {
+function login() {
     var username = $('[name="log_txt"]').val();
     var password = $('[name="psw_txt"]').val();
 
@@ -14,7 +14,7 @@ function login(username, password) {
             if (data.result.id != -1) {
                 showMsg("Bem-vindo :: " + data.result.username);
                 $("#modal_login .close").click();
-                $("#userBar").html("<b><img class=\"barIcon\"src=\"./images/basket.png\">  <a class=\"login\" onclick=\"logout()\">logout</a> <a class=\"login\" onclick=\"carrinho()\">Carrinho</a></b>");
+                $("#userBar").html("<b><img class=\"barIcon\"src=\"./images/basket.png\" onclick='carrinho()'>  <a class=\"login\" onclick=\"logout()\">logout</a> <a class=\"login\" onclick=\"carrinho()\">Carrinho</a></b>");
             } else {
                 showMsg(data.result.msg);
             }
@@ -89,34 +89,32 @@ function logout() {
 }
 
 function carrinho() {
-
-    $.ajax({
-        url: 'DB/mostrarCarrinho.php',
-        success: function(obj) {
-            var data = $.parseJSON(obj);
-            console.log(data.result);
-            var i = 0;
-            var html_row = "<tr>";
-            $.each(data.result, function(row, produto) {
-                produtos.push(produto);
-                /*
-                html_row += "<td><div data-toggle=\"modal\" data-target=\"#modal\" class=\"imagem_descontos\"><img src=\"" + produto.imagem + "\" alt=\"" + produto.id + "\"><div class=\"label_imagem_descontos\">" + produto.nome + "</div><div class=\"preco_imagem_descontos\">" + produto.preco + "€</div></div></td>";
-                i += 1;
-                if (i > 3) {
-                    html_row += "</tr>";
-                    div_destino.innerHTML += html_row;
-                    html_row = "<tr>";
-                    i = 0;
-                }
-                */
-            })
-        }
-    });
-}
-
-
-function showPanel() {
     verificaLog(function() {
-        console.log("Mostrar Painel!!");
+        var barra = $('#barraDireita');
+        if (!barra.hasClass("barraAtiva")) {
+            barra.addClass("barraAtiva");
+        }
+        var elm = $('#closer_latDir');
+        if (!elm.hasClass("closer_latDir_active")) {
+            elm.addClass("closer_latDir_active");
+            elm.html(">");
+
+        }
+        $.ajax({
+            url: 'DB/mostrarCarrinho.php',
+            success: function(obj) {
+                var data = $.parseJSON(obj);
+                console.log(data.result);
+                var i = 0;
+                var html = "<ul class='latDir'>";
+                $.each(data.result, function(row, produto) {
+                    produtos.push(produto);
+                    html += "<li class='latDir_li'> <table width='100%'> <tr class='latDir_sizedRow'> <td rowspan='3' class='pos_relative'> <img src='"+produto.imagem+"' width='100px'alt=''> <span class='span_quantidade_carrinho'>"+produto.quantidade+"</span></img> </td> <td>"+produto.nome+"</td> <td class='latDir_lastTD'><button type='button' name='button'>add</button></td></tr><tr><td>"+produto.descricao+"</td><td class='latDir_lastTD'><input type='text' name='' value=''></td></tr><tr class='latDir_sizedRow latDir_rightRow'><td>"+produto.preco+"</td><td class='latDir_lastTD'><button type='button' name='button'>remove</button></td></tr></table></li>";
+                })
+                html += "</ul>";
+                barra.html(html);
+            }
+        });
     });
+
 }

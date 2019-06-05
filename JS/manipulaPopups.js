@@ -36,3 +36,25 @@ function showMsg(msg) {
         x.removeClass("show");
     }, 3000);
 }
+
+function barraCarrinho() {
+
+    verificaLog(function(resp){
+        if(resp){
+            var elm = $("#barraLateral");
+            if (elm.hasClass("barraAtiva")) {
+                elm.removeClass("barraAtiva");
+                elm.html("");
+            }
+            var elm2 = $("#closer_latDir");
+            if (elm2.hasClass("closer_latDir_active")) {
+                elm2.removeClass("closer_latDir_active");
+                elm2.html("<");
+            }else{
+                carrinho();
+            }
+        }
+
+    });
+
+}

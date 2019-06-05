@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/snackbar.css">
     <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/carrinho.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -17,6 +18,7 @@
     <script src="JS/manipulaPopups.js"></script>
     <script src="JS/carrinho.js"></script>
     <title>Loja Virtual</title>
+    <!-- Verificação de login anterior -->
     <script>
         var produtos = [];
         $.ajax({
@@ -34,6 +36,7 @@
 </head>
 
 <body onload="loadScreen()">
+    <!-- Carrosel -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
         <ol class="carousel-indicators">
@@ -65,128 +68,135 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+    <!-- Utilizador -->
     <div class="userBar" id="userBar"><b>
             <a id="login" class="login" data-toggle="modal" data-target="#modal_login">Login</a>&nbsp;&nbsp;
             <a id="registar" class="registar" data-toggle="modal" data-target="#modal_registar">Registar</a></b>
-        <img src="images/default-profile.gif" onclick="showPanel()" />
+        <img src="images/default-profile.gif" onclick="barraCarrinho()" />
     </div>
-    <table>
-        <!-- Header-->
-        <tr>
-            <td class="titulo_principal">
-                <h3>Loja Virtual</h3>
-                <h4>2257 - Nuno Mendes</h4>
-                <h4>9991802 - João Rodrigues</h4>
-            </td>
-        </tr>
-    </table>
-    <table class="Descontos"></table>
-    <table class="produtos"></table>
-    <!-- Modal produtos -->
-    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" id="closer" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="popupProdutoTitulo"></h4>
-                </div>
-                <div class="modal-body">
-                    <table class="modal-dialog">
-                        <tr>
-                            <td><img id="modal_img"></td>
-                            <td>
-                                <div id="modal_descricao"></div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary" onclick="addCarrinho()">Adicionar ao carrinho</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Login Modal-->
-    <div class="modal fade" id="modal_login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Login</h4>
-                </div>
-                <div class="form-group input-group modal-body login_modal_content">
-                    <form action="" id="loginForm">
-                        <div class="form-group input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input class="form-control" type="text" name='log_txt' placeholder="username" />
+    <!-- lateral direita -->
+    <div id="barraDireita" class="barraLateral"></div>
+    <button type="button" id="closer_latDir" class="closer_latDir" onclick="barraCarrinho()" aria-label="Close"><span aria-hidden="true">
+            < </span> </button> <table class="Descontos">
+                </table>
+                <table class="produtos"></table>
+                <!-- Modal produto -->
+                <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" id="closer" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="popupProdutoTitulo"></h4>
+                            </div>
+                            <div class="modal-body">
+                                <table class="modal-dialog">
+                                    <tr>
+                                        <td><img id="modal_img"></td>
+                                        <td>
+                                            <div id="modal_descricao"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                                <button type="button" class="btn btn-primary" onclick="addCarrinho()">Adicionar ao carrinho</button>
+                            </div>
                         </div>
-                        <div class="form-group input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input class="form-control" type="password" name='psw_txt' placeholder="password" />
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> I agree to the <a href="#">Terms and Conditions</a>
-                            </label>
-                        </div>
-                        <div class="form-group text-center">
-                            <a href="#">Forgot Password</a>&nbsp;|&nbsp;<a href="#">Support</a>
-                        </div>
-                    </form>
+                    </div>
                 </div>
+                <!-- Login Modal -->
+                <div class="modal fade" id="modal_login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">Login</h4>
+                            </div>
+                            <div class="form-group input-group modal-body login_modal_content">
+                                <form action="" id="loginForm">
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input class="form-control" type="text" name='log_txt' placeholder="username" />
+                                    </div>
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input class="form-control" type="password" name='psw_txt' placeholder="password" />
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> I agree to the <a href="#">Terms and Conditions</a>
+                                        </label>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <a href="#">Forgot Password</a>&nbsp;|&nbsp;<a href="#">Support</a>
+                                    </div>
+                                </form>
+                            </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary" onclick="login()">Login</button>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                                <button type="button" class="btn btn-primary" onclick="login()">Login</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- Registo Modal-->
-    <div class="modal fade" id="modal_registar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Registo</h4>
-                </div>
-                <div class="form-group input-group modal-body login_modal_content">
-                    <form action="" id="registarForm">
-                        <div class="form-group input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input class="form-control" type="text" name='log_rgst_txt' placeholder="username" />
-                        </div>
-                        <div class="form-group input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input class="form-control" type="password" name='psw_rgst_txt' placeholder="password" />
-                        </div>
-                        <div class="form-group input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input class="form-control" type="email" name='mail_rgst_txt' placeholder="mail@mail.pt" />
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> I agree to the <a href="#">Terms and Conditions</a>
-                            </label>
-                        </div>
-                    </form>
-                </div>
+                <!-- Registo Modal -->
+                <div class="modal fade" id="modal_registar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">Registo</h4>
+                            </div>
+                            <div class="form-group input-group modal-body login_modal_content">
+                                <form action="" id="registarForm">
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input class="form-control" type="text" name='log_rgst_txt' placeholder="username" />
+                                    </div>
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input class="form-control" type="password" name='psw_rgst_txt' placeholder="password" />
+                                    </div>
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input class="form-control" type="email" name='mail_rgst_txt' placeholder="mail@mail.pt" />
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> I agree to the <a href="#">Terms and Conditions</a>
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary" onclick="registar()">Registar</button>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                                <button type="button" class="btn btn-primary" onclick="registar()">Registar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div id="snackbar"></div>
-    <div class="credits">Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a
-            href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-    <div class="credits">Bootstrap v3.4.0 <a href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">CSS</a> and <a href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js">JS</a> ||| <a
-            href="https://github.com/twbs/bootstrap/blob/v4.0.0/LICENSE">License</a></div>
-    <div class="credits">Ajax <a href="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">v.3.3.1</a> ||| <a href="https://github.com/ForbesLindesay/ajax/blob/master/LICENSE">License</a></div>
-    <div class="credits">Gradients made using <a href="https://colorzilla.com" title="Smashicons">Color Zilla</a>
+                <!-- SnackBar -->
+                <div id="snackbar"></div>
+                <!-- Made by -->
+                <table>
+                    <tr>
+                        <td class="titulo_principal">
+                            <h3>Loja Virtual</h3>
+                            <h4>2257 - Nuno Mendes</h4>
+                            <h4>9991802 - João Rodrigues</h4>
+                        </td>
+                    </tr>
+                </table>
+                <!-- Creditos -->
+                <div class="credits">Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a
+                        href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+                <div class="credits">Bootstrap v3.4.0 <a href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">CSS</a> and <a href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js">JS</a> ||| <a
+                        href="https://github.com/twbs/bootstrap/blob/v4.0.0/LICENSE">License</a></div>
+                <div class="credits">Ajax <a href="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">v.3.3.1</a> ||| <a href="https://github.com/ForbesLindesay/ajax/blob/master/LICENSE">License</a></div>
+                <div class="credits">Gradients made using <a href="https://colorzilla.com" title="Smashicons">Color Zilla</a>
 </body>
 
 </html>

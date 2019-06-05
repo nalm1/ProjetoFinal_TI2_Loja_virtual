@@ -10,7 +10,7 @@ function carregar_produtos(destino) {
             var html_row = "<tr>";
             $.each(data.result, function(row, produto) {
                 produtos.push(produto);
-                html_row += "<td><div data-toggle=\"modal\" data-target=\"#modal\" class=\"imagem_descontos\"><img src=\"" + produto.imagem + "\" alt=\"" + produto.id + "\"><div class=\"label_imagem_descontos\">" + produto.nome + "</div><div class=\"preco_imagem_descontos\">" + produto.preco + "€</div></div></td>";
+                html_row += "<td><div data-toggle=\"modal\" data-target=\"#modal\" class=\"imagem_descontos\"><img src=\"" + produto.imagem + "\" alt=\"" + produto.id + "\"><div class=\"label_imagem_descontos\">" + produto.nome + "</div><div class=\"preco_imagem_descontos\">" + parseFloat(Math.round(produto.preco * 100) / 100).toFixed(2) + "€</div></div></td>";
                 i += 1;
                 if (i > 3) {
                     html_row += "</tr>";

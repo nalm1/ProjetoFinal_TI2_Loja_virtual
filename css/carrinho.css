@@ -1,0 +1,98 @@
+/* Barra lateral*/
+.latDir {
+    min-width: 500px;
+}
+
+.latDir button {
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-color: green;
+    border: none;
+    margin: 0;
+}
+
+.latDir li {
+    list-style: none;
+    border-bottom: 1px solid black;
+    background-color: lightgreen;
+}
+
+.latDir input {
+    width: 100%;
+    margin: 0px;
+    border: none;
+    padding: 0;
+    text-align: center;
+}
+
+.latDir td {
+    width: 50%;
+}
+
+.latDir_sizedRow td {
+    width: 25%;
+}
+
+.latDir_lastTD {
+    margin: -10;
+}
+
+.barraLateral {
+    position: fixed;
+    background-color: lightgreen;
+    color: black;
+    right: 0;
+    bottom: 0;
+    height: 0;
+    width: 0;
+    transition: width 1.4s, height .7s, border-radius 1.6s;
+    border-top-left-radius: 100%;
+    overflow-y: scroll;
+}
+
+.barraAtiva {
+    height: 100%;
+    width: 50%;
+    border-top-left-radius: 0%;
+    Z-index: 100;
+}
+
+.pos_relative {
+    position: relative;
+}
+
+.barraAtiva img {
+    text-align: center;
+}
+
+.span_quantidade_carrinho {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 2px;
+    color: white;
+    background-color: red;
+    border-radius: 100%;
+}
+
+.closer_latDir {
+    position: absolute;
+    right: 0%;
+    height: 80px;
+    padding: 3px;
+    font-size: 50px;
+    background-color: lightgreen;
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 100%;
+    transition: 3s;
+}
+
+.closer_latDir_active {
+    right: 50%;
+    z-index: 99;
+}
+
+.closer_latDir:hover {
+    background-color: green;
+}

@@ -1,5 +1,6 @@
 html {
     margin: 0;
+    min-width: 1000px;
     font-size: 15px;
     overflow-x: hidden;
 }
