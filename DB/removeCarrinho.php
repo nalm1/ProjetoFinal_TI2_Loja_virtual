@@ -5,13 +5,16 @@
     $prod_id = $_REQUEST['prod_id'];
 
     $json = array();
-    $query = "INSERT INTO carrinho (user_id, prod_id) VALUES ($id, $prod_id)";
-    
+    $query = "DELETE FROM carrinho
+                WHERE prod_id like $prod_id AND user_id like $id
+                order by id ASC
+                limit 1;";
+
     if($conn->query($query)){
-        $json['result'] = ['msg'=> "Adicionado com sucesso!"];
+        $json['result'] = ['msg'=> "Removido com sucesso!"];
     }else {
-        trigger_error('Invalid query: ' . $conn->error);
         $json['result'] = ['msg'=> "Erro!"];
+        trigger_error('Invalid query: ' . $conn->error);
     }
 
     echo json_encode($json);

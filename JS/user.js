@@ -87,34 +87,3 @@ function logout() {
         }
     });
 }
-
-function carrinho() {
-    verificaLog(function() {
-        var barra = $('#barraDireita');
-        if (!barra.hasClass("barraAtiva")) {
-            barra.addClass("barraAtiva");
-        }
-        var elm = $('#closer_latDir');
-        if (!elm.hasClass("closer_latDir_active")) {
-            elm.addClass("closer_latDir_active");
-            elm.html(">");
-
-        }
-        $.ajax({
-            url: 'DB/mostrarCarrinho.php',
-            success: function(obj) {
-                var data = $.parseJSON(obj);
-                console.log(data.result);
-                var i = 0;
-                var html = "<ul class='latDir'>";
-                $.each(data.result, function(row, produto) {
-                    produtos.push(produto);
-                    html += "<li class='latDir_li'> <table width='100%'> <tr class='latDir_sizedRow'> <td rowspan='3' class='pos_relative'> <img src='"+produto.imagem+"' width='100px'alt=''> <span class='span_quantidade_carrinho'>"+produto.quantidade+"</span></img> </td> <td>"+produto.nome+"</td> <td class='latDir_lastTD'><button type='button' name='button'>add</button></td></tr><tr><td>"+produto.descricao+"</td><td class='latDir_lastTD'><input type='text' name='' value=''></td></tr><tr class='latDir_sizedRow latDir_rightRow'><td>"+produto.preco+"</td><td class='latDir_lastTD'><button type='button' name='button'>remove</button></td></tr></table></li>";
-                })
-                html += "</ul>";
-                barra.html(html);
-            }
-        });
-    });
-
-}
