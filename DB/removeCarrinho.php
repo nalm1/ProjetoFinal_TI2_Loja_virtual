@@ -14,7 +14,6 @@
         $json['result'] = ['msg'=> "Removido com sucesso!"];
     }else {
         $json['result'] = ['msg'=> "Erro!"];
-        trigger_error('Invalid query: ' . $conn->error);
     }
 
     echo json_encode($json);

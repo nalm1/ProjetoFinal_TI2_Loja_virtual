@@ -6,11 +6,10 @@
 
     $json = array();
     $query = "INSERT INTO carrinho (user_id, prod_id) VALUES ($id, $prod_id)";
-    
+
     if($conn->query($query)){
         $json['result'] = ['msg'=> "Adicionado com sucesso!"];
     }else {
-        trigger_error('Invalid query: ' . $conn->error);
         $json['result'] = ['msg'=> "Erro!"];
     }
 

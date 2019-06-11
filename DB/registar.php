@@ -7,7 +7,7 @@
     $query = "SELECT username FROM user WHERE username LIKE '$username' LIMIT 1";
     $result = $conn->query($query);
     $json = array();
-    
+
     if ($result->num_rows == 0) {
             $password = password_hash($password, PASSWORD_ARGON2I);
             $query = "INSERT INTO user (username, password, email) VALUES ('$username', '$password', '$email')";
@@ -16,7 +16,6 @@
             }
     } else {
         $json['result'] = ['msg'=> "Utilizador já existente!"];
-        trigger_error('Invalid query: ' . $conn->error);
     }
     echo json_encode($json);
     $conn->close();

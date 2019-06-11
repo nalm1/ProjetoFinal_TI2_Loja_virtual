@@ -26,7 +26,6 @@
             $resultado[] = $produto;
         }
     } else {
-        echo "<script> console.log(\"erro\")</script>";
         $aResult['error'] = "Nenhum produto encontrado!";
     }
     $json['result'] = $resultado;

@@ -6,9 +6,7 @@
     $query = "SELECT id, password FROM user WHERE username LIKE '$username' LIMIT 1";
     $result = $conn->query($query);
     $json = array();
-    if(!$result){
-        trigger_error('Invalid query: ' . $conn->error);
-    }
+
     if ($result->num_rows == 1) {
         $row = $result->fetch_assoc();
         if($row) {

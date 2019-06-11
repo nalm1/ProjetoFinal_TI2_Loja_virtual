@@ -7,7 +7,7 @@
     $query = "SELECT id, hash FROM user WHERE username LIKE '$username' LIMIT 1";
     $result = $conn->query($query);
     $json = array();
-    
+
     if ($result->num_rows == 1) {
         while($row = $result->fetch_assoc()) {
             if($hash == $row['hash'] && $id == $row['id'])
@@ -22,7 +22,6 @@
         }
     } else {
         $json['result'] = ['msg'=> 'Faça login, por favor!'];
-        trigger_error('Invalid query: ' . $conn->error);
 
     }
     echo json_encode($json);
